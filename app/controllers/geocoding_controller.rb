@@ -28,6 +28,7 @@ class GeocodingController < ApplicationController
   @location = @geometry["location"]
   
   
+  
   @latitude = @location["lat"]
 
   @longitude = @location["lng"]
