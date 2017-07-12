@@ -17,7 +17,7 @@ class MeteorologistController < ApplicationController
  
     @url_base= "https://maps.googleapis.com/maps/api/geocode/json?address="
     @url_input=@street_address.gsub(" ","+")
-    @url= "#{@url_base}+ #{@url_input}"
+    @url= "#{@url_base}#{@url_input}"
     @raw_data=open(@url).read
     @jsoned=JSON[@raw_data]
     @results=@jsoned["results"]
@@ -31,7 +31,7 @@ class MeteorologistController < ApplicationController
     @url_base= "https://api.darksky.net/forecast/cd0ec86c2d365b0d91aed359d695e355/"
     @url_input_lat = @latitude
     @url_input_lng = @longitude
-    @url_weather= "#{@url_base}+#{@url_input_lat},#{@url_input_lng}"
+    @url_weather= "#{@url_base}#{@url_input_lat},#{@url_input_lng}"
     @raw_dataw=open(@url_weather).read
     @jsonedw=JSON[@raw_dataw]
     @current=@jsonedw["currently"]

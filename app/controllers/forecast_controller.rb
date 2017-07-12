@@ -19,7 +19,7 @@ class ForecastController < ApplicationController
   @url_base= "https://api.darksky.net/forecast/cd0ec86c2d365b0d91aed359d695e355/"
   @url_input_lat = @lat
   @url_input_lng = @lng
-  @url_weather= "#{@url_base}+#{@url_input_lat},#{@url_input_lng}"
+  @url_weather= "#{@url_base}#{@url_input_lat},#{@url_input_lng}"
   @raw_dataw=open(@url_weather).read
   @jsonedw=JSON[@raw_dataw]
   @current=@jsonedw["currently"]
